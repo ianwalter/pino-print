@@ -1,0 +1,36 @@
+{
+  "name": "@ianwalter/pino-print",
+  "license": "SEE LICENSE IN LICENSE",
+  "bin": {
+    "pino-print": "index.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "example": "node tests/example.js | node index.js",
+    "test": "bff"
+  },
+  "dependencies": {
+    "@ianwalter/print": "^3.4.0"
+  },
+  "devDependencies": {
+    "@ianwalter/bff": "^6.5.1",
+    "@ianwalter/eslint-config": "^3.0.0",
+    "@ianwalter/release": "^3.0.5",
+    "@ianwalter/renovate-config": "^1.2.0",
+    "@ianwalter/requester": "^1.9.0",
+    "@ianwalter/test-server": "^2.0.2",
+    "execa": "^2.0.4",
+    "koa-pino-logger": "^2.1.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "@ianwalter"
+    ]
+  }
+}
