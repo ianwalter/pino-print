@@ -96,7 +96,7 @@ function pinoPrint (line) {
     }
 
     // Add back information if log level is debug.
-    if (config.level === 'debug' && responseTime) {
+    if (config.level === 'debug' && isRequest) {
       rest.hostname = hostname
       rest.pid = pid
       rest.req = {

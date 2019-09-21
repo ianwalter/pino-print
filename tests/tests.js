@@ -27,13 +27,13 @@ const lineTwo = JSON.stringify({
   v: 1
 }) + '\n'
 
-test('pino-stackdriver adds severity to log entry', ({ expect }) => {
+test('pino-print', ({ expect }) => {
   return new Promise(resolve => {
     const stdin = new Readable({ read () {} })
     const cp = execa('node', [pinoPrint])
     let counter = 0
     cp.stdout.on('data', data => {
-      expect(JSON.parse(data)).toMatchSnapshot()
+      expect(data.toString()).toMatchSnapshot()
       if (counter) {
         resolve()
       } else {
