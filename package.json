@@ -1,6 +1,9 @@
 {
   "name": "@ianwalter/pino-print",
+  "description": "Makes Pino log lines easy to read",
+  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
   "bin": {
     "pino-print": "index.js"
   },
@@ -9,6 +12,23 @@
     "example": "node tests/example.js | node index.js",
     "test": "bff"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/pino-print.git"
+  },
+  "keywords": [
+    "pino",
+    "log",
+    "pretty",
+    "logging",
+    "readbale",
+    "human"
+  ],
+  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
+  "bugs": {
+    "url": "https://github.com/ianwalter/pino-print/issues"
+  },
+  "homepage": "https://github.com/ianwalter/pino-print#readme",
   "dependencies": {
     "@ianwalter/cli": "^1.2.0",
     "@ianwalter/print": "^3.4.0"
