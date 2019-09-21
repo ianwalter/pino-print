@@ -3,10 +3,23 @@
 const { print, chalk } = require('@ianwalter/print')
 const split = require('split2')
 const parseJson = require('fast-json-parse')
+const cli = require('@ianwalter/cli')
+
+const config = cli({
+  name: 'pino-print',
+  opts: {
+    alias: {
+      level: 'l'
+    },
+    default: {
+      level: 'info'
+    }
+  }
+})
 
 function pinoPrint (line) {
   if (line[0] === '{') {
-    const {
+    let {
       value: {
         // General log properties:
         level,
@@ -31,59 +44,71 @@ function pinoPrint (line) {
     } = parseJson(line || {})
 
     const messages = []
+    const isRequest = responseTime !== undefined
 
-    // Determine emoji/log type to use.
-    let logType = 'log'
-    if (req && res) {
-      messages.push('📨')
-    } else if (req) {
-      messages.push('📥')
-    } else if (res) {
-      messages.push('📤')
-    } else if (level < 30) {
-      logType = 'debug'
-    } else if (level === 30) {
-      logType = 'info'
+    // Determine type of log to use.
+    let logType = 'debug'
+    let logColor = 'magenta'
+    if (level === 30) {
+      logType = isRequest ? 'text' : 'info'
+      logColor = isRequest ? 'white' : 'blue'
+    } else if (level === 40) {
+      logType = 'warn'
+      logColor = 'yellow'
+    } else if (level === 50) {
+      logType = 'error'
+      logColor = 'red'
+    } else if (level === 60) {
+      logType = 'fatal'
+      logColor = 'red'
     }
 
     if (time) {
       const datetime = new Date(time)
       const [second, meridiem] = datetime.toLocaleTimeString().split(' ')
-      const ms = datetime.getMilliseconds()
+      const ms = `${datetime.getMilliseconds()}`.padEnd(3, '0')
       const date = datetime.toLocaleDateString()
-      messages.push(`${date} ${second}.${ms}${meridiem.toLowerCase()}`)
+      messages.push(
+        chalk.white.bold(`${date} ${second}.${ms}${meridiem.toLowerCase()} ●`)
+      )
     }
 
-    if (req && req.method) {
-      messages.push(chalk.bold.yellow(req.method))
+    if (res && res.statusCode) {
+      messages.push(chalk[logColor](res.statusCode))
     }
 
-    if (req && req.url) {
-      messages.push(chalk.bold.yellow(req.url))
+    if (req && req.method && isRequest) {
+      messages.push(chalk[logColor](req.method))
+    }
+
+    if (req && req.url && isRequest) {
+      messages.push(chalk[logColor](req.url))
     }
 
     if (msg) {
-      messages.push(chalk.bold.yellow(msg))
+      messages.push(chalk[logColor](msg))
     }
 
-    if (responseTime) {
+    if (isRequest) {
+      responseTime = responseTime === 0 ? '< 1' : responseTime
       // FIXME: use timer to get a better formatted duration string.
-      messages.push(chalk.bold.yellow(`in ${responseTime}ms`))
+      messages.push(chalk.dim(`in ${responseTime}ms`))
     }
 
     // Add back information if log level is debug.
-    if (logType === 'debug') {
+    if (config.level === 'debug' && responseTime) {
       rest.hostname = hostname
       rest.pid = pid
       rest.req = {
         id: req.id,
         headers: req.headers
       }
+      rest.res = { headers: res.headers }
     }
 
     print[logType](...messages, ...Object.keys(rest).length ? [rest] : [])
   } else {
-    print.text(line)
+    print.write(line)
   }
 }
 
