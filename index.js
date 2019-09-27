@@ -114,10 +114,10 @@ function pinoPrint (line) {
 
     print[logType](...messages, ...Object.keys(rest).length ? [rest] : [])
   } else {
-    if (config.text) {
-      print.write(stripAnsi(line))
-    } else {
+    if (config.ansi) {
       print.write(line)
+    } else {
+      print.write(stripAnsi(line))
     }
   }
 }
