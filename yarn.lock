@@ -32,13 +32,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.0.0.tgz#d53b93115739e4fec4406b06173be35321d207f8"
   integrity sha512-I7iqckGb4RCE4pZKTo4o3J17ajhp1+XJfYMTQhY4L+tyWYNdj5sqacrnyzgfrYpkzuUrdWGIgpcsF72WA2yPkg==
 
-"@ianwalter/bff@^6.5.1":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-6.5.1.tgz#6c6c1439bb0eb3e21a1d77fdebb130f71ae97c6a"
-  integrity sha512-ETmcrqgb9vuNZTDNUCvQGZUk5/oILq94B2qCmy9C2913Cg6q/qmbRZY7b2kgrkUnPR5pCcj6Q9yHKCHru9HxeA==
+"@ianwalter/bff@^6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-6.5.2.tgz#0f0cda2492725789e47e10a49f5e07d7b12b8740"
+  integrity sha512-48LHPeqRWNsc0UBh8pMMqvbWWlM2J8OCbAh80/cJO610aar0qK3EZD5Zd0Hh4bAQ+iv5AqeclZK3n+x3aAtv4g==
   dependencies:
     "@ianwalter/cli" "^1.2.0"
-    "@ianwalter/print" "^3.3.1"
+    "@ianwalter/print" "^3.4.0"
     "@ianwalter/timer" "^1.1.0"
     common-tags "^1.8.0"
     expect "^24.9.0"
@@ -137,7 +137,7 @@
     marked "^0.7.0"
     marked-terminal "^3.3.0"
 
-"@ianwalter/print@^3.5.0":
+"@ianwalter/print@^3.4.0", "@ianwalter/print@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.5.0.tgz#13a594f29330b0be28e27355b7c707a01251d93f"
   integrity sha512-5NYDzTSPeNMzY5OljmyF2w6NDw8A8MWUfGvkiS/e/mZIKaS61AhRqMb3/gLreb/UyqonsdMqzI0lYMmZThfSyA==
