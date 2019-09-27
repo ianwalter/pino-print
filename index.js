@@ -1,21 +1,27 @@
 #!/usr/bin/env node
 
-const { print, chalk } = require('@ianwalter/print')
+const { Print, chalk } = require('@ianwalter/print')
 const split = require('split2')
 const parseJson = require('fast-json-parse')
 const cli = require('@ianwalter/cli')
+const stripAnsi = require('strip-ansi')
 
 const config = cli({
   name: 'pino-print',
   opts: {
     alias: {
-      level: 'l'
+      level: 'l',
+      ansi: 'a'
     },
+    boolean: ['ansi'],
     default: {
-      level: 'info'
+      level: 'info',
+      ansi: true
     }
   }
 })
+
+const print = new Print({ chalkEnabled: config.ansi })
 
 function pinoPrint (line) {
   if (line[0] === '{') {
@@ -108,7 +114,11 @@ function pinoPrint (line) {
 
     print[logType](...messages, ...Object.keys(rest).length ? [rest] : [])
   } else {
-    print.write(line)
+    if (config.text) {
+      print.write(stripAnsi(line))
+    } else {
+      print.write(line)
+    }
   }
 }
 
