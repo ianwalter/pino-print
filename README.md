@@ -20,7 +20,8 @@ node server.js | pino-print
 
 ## Options
 
-* `--level, -l <debug|info>`
+* `--level, -l <debug|info>` Sets the log level (default: 'info')
+* `--(no-)ansi, -a` Enables (default) or disables ANSI escape sequences (via Chalk)
 
 ## License
 
