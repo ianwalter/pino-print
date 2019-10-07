@@ -23,6 +23,14 @@ const config = cli({
 
 const print = new Print({ chalkEnabled: config.ansi })
 
+function passthrough (line) {
+  if (config.ansi) {
+    print.write(line)
+  } else {
+    print.write(stripAnsi(line))
+  }
+}
+
 function pinoPrint (line) {
   if (line[0] === '{') {
     let {
@@ -47,7 +55,13 @@ function pinoPrint (line) {
         // Everything else:
         ...rest
       }
-    } = parseJson(line) || {}
+    } = parseJson(line) || { value: {} }
+
+    // If the line couldn't be parsed as JSON, log the line without formatting
+    // it as a request/response.
+    if (!level) {
+      return passthrough(line)
+    }
 
     const messages = []
     const isRequest = responseTime !== undefined
@@ -114,11 +128,7 @@ function pinoPrint (line) {
 
     print[logType](...messages, ...Object.keys(rest).length ? [rest] : [])
   } else {
-    if (config.ansi) {
-      print.write(line)
-    } else {
-      print.write(stripAnsi(line))
-    }
+    passthrough(line)
   }
 }
 
