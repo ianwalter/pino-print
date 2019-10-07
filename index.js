@@ -47,7 +47,7 @@ function pinoPrint (line) {
         // Everything else:
         ...rest
       }
-    } = parseJson(line || {})
+    } = parseJson(line) || {}
 
     const messages = []
     const isRequest = responseTime !== undefined
