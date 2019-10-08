@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:12.10-slim
+      env:
+        TZ: America/New_York
     steps:
       - name: Checkout
         uses: actions/checkout@master
