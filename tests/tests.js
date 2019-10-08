@@ -26,6 +26,10 @@ const lineTwo = JSON.stringify({
   responseTime: 288,
   v: 1
 }) + '\n'
+const withoutTs = line => {
+  const [first, second] = line.split('●')
+  return second || first
+}
 
 test('pino-print', ({ expect }) => {
   return new Promise(resolve => {
@@ -33,7 +37,8 @@ test('pino-print', ({ expect }) => {
     const cp = execa('node', [pinoPrint])
     let counter = 0
     cp.stdout.on('data', data => {
-      expect(data.toString().trim()).toMatchSnapshot()
+      const lines = data.toString().split('\n').map(withoutTs).filter(l => l)
+      expect(lines).toMatchSnapshot()
       if (counter) {
         resolve()
       } else {
