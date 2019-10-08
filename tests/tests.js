@@ -33,7 +33,7 @@ test('pino-print', ({ expect }) => {
     const cp = execa('node', [pinoPrint])
     let counter = 0
     cp.stdout.on('data', data => {
-      expect(data.toString()).toMatchSnapshot()
+      expect(data.toString().trim()).toMatchSnapshot()
       if (counter) {
         resolve()
       } else {
