@@ -15,7 +15,7 @@ yarn add @ianwalter/pino-print
 ## CLI Usage
 
 ```console
-node server.js | pino-print
+node server.js | npx pino-print
 ```
 
 ## Options
