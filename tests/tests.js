@@ -48,7 +48,7 @@ test('pino-print', ({ expect }) => {
       resolve()
     })
 
-    // 
+    // Write logs to stream.
     stdin.pipe(cp.stdin)
     stdin.push(lineOne)
     stdin.push(lineTwo)
