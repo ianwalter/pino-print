@@ -33,35 +33,35 @@ function passthrough (line) {
 
 function pinoPrint (line) {
   if (line[0] === '{') {
-    let {
-      value: {
-        // General log properties:
-        level,
-        time,
-        msg,
-
-        // Log properties specific to servers.
-        req,
-        res,
-        responseTime,
-
-        // Only included in debug levels:
-        hostname,
-        pid,
-
-        // Ignored:
-        v,
-
-        // Everything else:
-        ...rest
-      }
-    } = parseJson(line) || { value: {} }
+    const { err, value } = parseJson(line)
 
     // If the line couldn't be parsed as JSON, log the line without formatting
     // it as a request/response.
-    if (!level) {
+    if (err) {
       return passthrough(line)
     }
+
+    let {
+      // General log properties:
+      level,
+      time,
+      msg,
+
+      // Log properties specific to servers.
+      req,
+      res,
+      responseTime,
+
+      // Only included in debug levels:
+      hostname,
+      pid,
+
+      // Ignored:
+      v,
+
+      // Everything else:
+      ...rest
+    } = value
 
     const messages = []
     const isRequest = responseTime !== undefined

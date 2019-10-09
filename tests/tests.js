@@ -26,6 +26,7 @@ const lineTwo = JSON.stringify({
   responseTime: 288,
   v: 1
 }) + '\n'
+const lineThree = "{ Error => `Lalala-la lalal-la Elmo's world!` }"
 const withoutTs = line => {
   const [first, second] = line.split('●')
   return second || first
@@ -48,6 +49,7 @@ test('pino-print', ({ expect }) => {
     stdin.pipe(cp.stdin)
     stdin.push(lineOne)
     stdin.push(lineTwo)
+    stdin.push(lineThree)
     stdin.push(null) // Push null to close the stream.
   })
 })

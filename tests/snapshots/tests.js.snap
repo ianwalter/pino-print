@@ -9,5 +9,6 @@ Array [
 exports[`pino-print 2`] = `
 Array [
   "[22m[39m [37m201[39m [37mA user forgot their password[39m [2min 288ms[22m",
+  "{ Error => \`Lalala-la lalal-la Elmo's world!\` }",
 ]
 `;
