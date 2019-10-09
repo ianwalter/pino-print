@@ -31,28 +31,31 @@ const withoutTs = line => {
   const [first, second] = line.split('●')
   return second || first
 }
+const emptyLines = line => line
 
-test('pino-print', ({ expect, sleep }) => {
+test('pino-print', ({ expect }) => {
   return new Promise(resolve => {
     const stdin = new Readable({ read () {} })
-    const cp = execa('node', [pinoPrint])
-    let counter = 0
+    const cp = execa('node', [pinoPrint], { reject: false })
+
+    let lines = []
     cp.stdout.on('data', data => {
-      const lines = data.toString().split('\n').map(withoutTs).filter(l => l)
-      expect(lines).toMatchSnapshot()
-      if (counter) {
-        resolve()
-      } else {
-        counter++
-      }
+      const rawLines = data.toString().split('\n')
+      lines = lines.concat(rawLines.map(withoutTs).filter(emptyLines))
     })
+    cp.stdout.on('close', () => {
+      expect(lines).toMatchSnapshot()
+      resolve()
+    })
+
+    // 
     stdin.pipe(cp.stdin)
     stdin.push(lineOne)
-    sleep(100)
     stdin.push(lineTwo)
-    sleep(100)
     stdin.push(lineThree)
-    sleep(100)
-    stdin.push(null) // Push null to close the stream.
+
+    // Push null to close the streams.
+    stdin.push(null)
+    cp.stdin.push(null)
   })
 })
