@@ -32,7 +32,7 @@ const withoutTs = line => {
   return second || first
 }
 
-test('pino-print', ({ expect }) => {
+test('pino-print', ({ expect, sleep }) => {
   return new Promise(resolve => {
     const stdin = new Readable({ read () {} })
     const cp = execa('node', [pinoPrint])
@@ -48,8 +48,11 @@ test('pino-print', ({ expect }) => {
     })
     stdin.pipe(cp.stdin)
     stdin.push(lineOne)
+    sleep(100)
     stdin.push(lineTwo)
+    sleep(100)
     stdin.push(lineThree)
+    sleep(100)
     stdin.push(null) // Push null to close the stream.
   })
 })
