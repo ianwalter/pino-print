@@ -137,7 +137,7 @@
     marked "^0.7.0"
     marked-terminal "^3.3.0"
 
-"@ianwalter/print@^3.4.0", "@ianwalter/print@^3.5.0":
+"@ianwalter/print@^3.4.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.5.0.tgz#13a594f29330b0be28e27355b7c707a01251d93f"
   integrity sha512-5NYDzTSPeNMzY5OljmyF2w6NDw8A8MWUfGvkiS/e/mZIKaS61AhRqMb3/gLreb/UyqonsdMqzI0lYMmZThfSyA==
