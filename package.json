@@ -3,6 +3,10 @@
   "description": "Makes Pino log lines easy to read",
   "version": "1.2.0",
   "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
   "main": "index.js",
   "bin": {
     "pino-print": "index.js"
@@ -24,7 +28,6 @@
     "readbale",
     "human"
   ],
-  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "bugs": {
     "url": "https://github.com/ianwalter/pino-print/issues"
   },

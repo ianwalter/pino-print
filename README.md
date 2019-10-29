@@ -21,15 +21,17 @@ node server.js | npx pino-print
 ## Options
 
 * `--level, -l <debug|info>` Sets the log level (default: 'info')
-* `--(no-)ansi, -a` Enables (default) or disables ANSI escape sequences (via Chalk)
+* `--(no-)ansi, -a` Enables (default) or disables ANSI escape sequences (via
+  Chalk)
+
 
 ## License
 
-Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
+Hippocratic License - See [LICENSE][licenseUrl]
 
 &nbsp;
 
-Created by [Ian Walter](https://iankwalter.com)
+Created by [Ian Walter](https://ianwalter.dev)
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/pino-print.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/pino-print
