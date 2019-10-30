@@ -179,20 +179,18 @@
     marked "^0.7.0"
     marked-terminal "^3.3.0"
 
-"@ianwalter/release@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-3.0.5.tgz#7827583766e3d5cf7e6e8c93280a7695029c203e"
-  integrity sha512-WWdqa5fu04iSOAdcty2khPBLmzdMcpsShwY7oqOKWxtnI4qtWXzTPGH4mPa7kBB6uM4c2RYK9TwLnkoGKpIhfg==
+"@ianwalter/release@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-3.0.6.tgz#9e5b975469ee3176b99fd770d7d75028fbef73b5"
+  integrity sha512-8f9bF5kp3vSisP37thy2vxpoFJE2MzQZbaLuARr3vmWhH6foXzD1X/qcapLgA74/hh1PCybcDhrRYIMNMc43vA==
   dependencies:
     "@ianwalter/cli" "^1.2.0"
     "@ianwalter/commits" "^0.0.6"
-    "@ianwalter/print" "^3.3.1"
+    "@ianwalter/print" "^3.8.0"
     "@ianwalter/update-package" "^0.0.2"
     common-tags "^1.8.0"
-    execa "^2.0.4"
+    execa "^3.2.0"
     latest-version "^5.1.0"
-    marked "^0.7.0"
-    marked-terminal "^3.3.0"
     new-github-release-url "^1.0.0"
     prompts "^2.2.1"
     semver "^6.3.0"
