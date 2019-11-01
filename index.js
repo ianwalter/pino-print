@@ -8,15 +8,14 @@ const stripAnsi = require('strip-ansi')
 
 const config = cli({
   name: 'pino-print',
-  opts: {
-    alias: {
-      level: 'l',
-      ansi: 'a'
+  options: {
+    level: {
+      alias: 'l',
+      default: 'info
     },
-    boolean: ['ansi'],
-    default: {
-      level: 'info',
-      ansi: true
+    ansi: {
+      alias: 'a',
+      default: true
     }
   }
 })
