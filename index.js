@@ -119,7 +119,7 @@ function pinoPrint (line) {
     }
 
     if (hasUrl && config.static && req.url.includes(config.static)) {
-      // Reset rest object so it doesn't get logged if the request is for a 
+      // Reset rest object so it doesn't get logged if the request is for a
       // static URL and the static option is set.
       rest = {}
     } else if (isRequest && config.level === 'debug') {
