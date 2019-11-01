@@ -17,6 +17,7 @@ async function run () {
     }
   })
   await requester.get(server.url)
+  await requester.get(`${server.url}/static/a.gif`)
   await requester.post(server.url, { body: { message: 'in a bottle' } })
   await server.close()
 }
