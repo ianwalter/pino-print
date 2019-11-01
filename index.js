@@ -16,6 +16,9 @@ const config = cli({
     ansi: {
       alias: 'a',
       default: true
+    },
+    static: {
+      default: '/static/'
     }
   }
 })
@@ -100,7 +103,8 @@ function pinoPrint (line) {
       messages.push(chalk[logColor](req.method))
     }
 
-    if (req && req.url && isRequest) {
+    const hasUrl = isRequest && req && req.url
+    if (hasUrl) {
       messages.push(chalk[logColor](req.url))
     }
 
@@ -114,8 +118,12 @@ function pinoPrint (line) {
       messages.push(chalk.dim(`in ${responseTime}ms`))
     }
 
-    // Add back information if log level is debug.
-    if (config.level === 'debug' && isRequest) {
+    if (hasUrl && config.static && req.url.includes(config.static)) {
+      // Reset rest object so it doesn't get logged if the request is for a 
+      // static URL and the static option is set.
+      rest = {}
+    } else if (isRequest && config.level === 'debug') {
+      // Add back information if log level is debug.
       rest.hostname = hostname
       rest.pid = pid
       rest.req = {

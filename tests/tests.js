@@ -10,7 +10,7 @@ const lineOne = JSON.stringify({
   level: 50,
   msg: 'TestError: blah blah blah',
   pid: 1,
-  req: { path: '/test' },
+  req: { url: '/test' },
   res: { statusCode: 500 },
   responseTime: 116,
   v: 1
@@ -21,12 +21,22 @@ const lineTwo = JSON.stringify({
   level: 30,
   msg: 'A user forgot their password',
   pid: 1,
-  req: { path: '/api/password-reset' },
+  req: { url: '/api/password-reset' },
   res: { statusCode: 201 },
   responseTime: 288,
   v: 1
 }) + '\n'
-const lineThree = "{ Error => `Lalala-la lalal-la Elmo's world!` }"
+const lineThree = "{ Error => `Lalala-la lalal-la Elmo's world!` }\n"
+const lineFour = JSON.stringify({
+  time: 1544043401245,
+  hostname: 'host',
+  level: 30,
+  pid: 1,
+  req: { url: '/static/ygritte.gif' },
+  res: { statusCode: 200 },
+  responseTime: 98,
+  v: 1
+}) + '\n'
 const withoutTs = line => {
   const [first, second] = line.split('●')
   return second || first
@@ -53,6 +63,7 @@ test('pino-print', ({ expect }) => {
     stdin.push(lineOne)
     stdin.push(lineTwo)
     stdin.push(lineThree)
+    stdin.push(lineFour)
 
     // Push null to close the streams.
     stdin.push(null)
