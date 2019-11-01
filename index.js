@@ -11,7 +11,7 @@ const config = cli({
   options: {
     level: {
       alias: 'l',
-      default: 'info
+      default: 'info'
     },
     ansi: {
       alias: 'a',
