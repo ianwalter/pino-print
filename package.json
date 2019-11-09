@@ -37,7 +37,7 @@
     "@ianwalter/print": "^3.8.0",
     "fast-json-parse": "^1.0.3",
     "split2": "^3.1.1",
-    "strip-ansi": "^5.2.0"
+    "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^7.0.0",
