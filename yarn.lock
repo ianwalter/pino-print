@@ -78,13 +78,13 @@
     getopts "^2.2.5"
     read-pkg-up "^6.0.0"
 
-"@ianwalter/cli@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-2.1.0.tgz#cc8e955886571760661af5bab8829a68e9973474"
-  integrity sha512-eyirwH2Mv4hENJZu4udFUM5ypQnJnUto0G9/L5fet0opH/7+d0Z6scHfsQ9X81iJ1rGB6/rOIBc1X4s3o1z94g==
+"@ianwalter/cli@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-2.1.1.tgz#91d50392c75b2f99743d1f2470c587ac3d53eda1"
+  integrity sha512-Y//edCQUfYWc2NUh+UClDOhYlZUv9L/urdngdorPcKYxPkkV5b6O7meOZp3fuLbSiMx9Qa17W3dp3zOWnrQMmg==
   dependencies:
     "@ianwalter/merge" "^5.0.0"
-    "@ianwalter/print" "^3.8.0"
+    "@ianwalter/print" "^3.9.0"
     common-tags "^1.8.0"
     dot-prop "^5.2.0"
     getopts "^2.2.5"
@@ -190,6 +190,21 @@
     has-emoji "^1.1.0"
     marked "^0.7.0"
     marked-terminal "^3.3.0"
+
+"@ianwalter/print@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.9.0.tgz#db84d5f0fdcd144b1647aded8d33e6fa615208b9"
+  integrity sha512-8qYgeHNrLYBQa8pDDffptX280JVaAgFjlQAPpf5HH471F/tTEjcKIKC7oTaB+V5BtjLGkh8qoJVon1WyhNFO0Q==
+  dependencies:
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/clone" "^4.1.0"
+    "@ianwalter/log" "^3.1.0"
+    chalk "^2.4.2"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^0.7.0"
+    marked-terminal "^3.3.0"
+    strip-ansi "^6.0.0"
 
 "@ianwalter/release@^3.0.6":
   version "3.0.6"
