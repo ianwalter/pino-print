@@ -3,8 +3,8 @@
 exports[`pino-print 1`] = `
 Array [
   "[22m[39m [31m500[39m [31m/test[39m [31mTestError: blah blah blah[39m [2min 116ms[22m",
-  "[22m[39m [37m201[39m [37m/api/password-reset[39m [37mA user forgot their password[39m [2min 288ms[22m",
+  " 201 /api/password-reset A user forgot their password in 288ms",
   "{ Error => \`Lalala-la lalal-la Elmo's world!\` }",
-  "[22m[39m [37m200[39m [37m/static/ygritte.gif[39m [2min 98ms[22m",
+  " 200 /static/ygritte.gif in 98ms",
 ]
 `;
