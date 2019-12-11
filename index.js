@@ -1,39 +1,7 @@
-#!/usr/bin/env node
-
 const { Print, chalk } = require('@ianwalter/print')
-const split = require('split2')
 const parseJson = require('fast-json-parse')
-const cli = require('@ianwalter/cli')
-const stripAnsi = require('strip-ansi')
 
-const config = cli({
-  name: 'pino-print',
-  options: {
-    level: {
-      alias: 'l',
-      default: 'info'
-    },
-    ansi: {
-      alias: 'a',
-      default: true
-    },
-    static: {
-      default: '/static/'
-    }
-  }
-})
-
-const print = new Print({ chalkEnabled: config.ansi })
-
-function passthrough (line) {
-  if (config.ansi) {
-    print.write(line)
-  } else {
-    print.write(stripAnsi(line))
-  }
-}
-
-function pinoPrint (line) {
+module.exports = function pinoPrint (line) {
   if (line[0] === '{') {
     const { err, value } = parseJson(line)
 
@@ -138,5 +106,3 @@ function pinoPrint (line) {
     passthrough(line)
   }
 }
-
-process.stdin.pipe(split(pinoPrint))
