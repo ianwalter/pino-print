@@ -3,7 +3,7 @@ const { Readable } = require('stream')
 const { test } = require('@ianwalter/bff')
 const execa = require('execa')
 
-const pinoPrint = join(__dirname, '../')
+const pinoPrint = join(__dirname, '../cli.js')
 const lineOne = JSON.stringify({
   time: 1544043395681,
   hostname: 'host',

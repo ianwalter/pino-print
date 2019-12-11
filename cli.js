@@ -2,7 +2,6 @@
 
 const split = require('split2')
 const cli = require('@ianwalter/cli')
-const stripAnsi = require('strip-ansi')
 const pinoPrint = require('.')
 
 const config = cli({
@@ -22,15 +21,6 @@ const config = cli({
     }
   }
 })
+const prettifier = pinoPrint(config)
 
-const print = new Print({ chalkEnabled: config.ansi })
-
-function passthrough (line) {
-  if (config.ansi) {
-    print.write(line)
-  } else {
-    print.write(stripAnsi(line))
-  }
-}
-
-process.stdin.pipe(split(pinoPrint))
+process.stdin.pipe(split(prettifier))
