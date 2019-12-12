@@ -11,10 +11,7 @@ module.exports = function pinoPrint (config) {
   const options = Object.assign({}, defaults, config)
 
   // Create the Print instance based on the CLI or prettyPrint options.
-  const print = new Print({
-    ...options,
-    ...options.ansi ? {} : { chalkLevel: 0 }
-  })
+  const print = new Print({ ...options.ansi ? {} : { chalkLevel: 0 } })
 
   return function prettifier (line) {
     if (typeof line === 'string') {
@@ -57,7 +54,7 @@ module.exports = function pinoPrint (config) {
     let logType = 'debug'
     let logColor = 'magenta'
     if (level === 30) {
-      logType = isRequest ? 'text' : 'info'
+      logType = isRequest ? 'log' : 'info'
       logColor = isRequest ? 'white' : 'blue'
     } else if (level === 40) {
       logType = 'warn'
@@ -119,6 +116,7 @@ module.exports = function pinoPrint (config) {
     }
 
     line = print[logType](
+      ...logType === 'log' ? [null] : [],
       ...messages,
       ...Object.keys(rest).length ? [rest] : []
     )
