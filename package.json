@@ -16,6 +16,10 @@
     "example": "node tests/example.js | node cli.js",
     "test": "bff"
   },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ianwalter/pino-print.git"
