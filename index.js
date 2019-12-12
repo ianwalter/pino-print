@@ -1,46 +1,31 @@
-#!/usr/bin/env node
-
 const { Print, chalk } = require('@ianwalter/print')
-const split = require('split2')
 const parseJson = require('fast-json-parse')
-const cli = require('@ianwalter/cli')
 const stripAnsi = require('strip-ansi')
 
-const config = cli({
-  name: 'pino-print',
-  options: {
-    level: {
-      alias: 'l',
-      default: 'info'
-    },
-    ansi: {
-      alias: 'a',
-      default: true
-    },
-    static: {
-      default: '/static/'
-    }
-  }
-})
-
-const print = new Print({ chalkEnabled: config.ansi })
-
-function passthrough (line) {
-  if (config.ansi) {
-    print.write(line)
-  } else {
-    print.write(stripAnsi(line))
-  }
+const defaults = {
+  level: 'info',
+  ansi: true
 }
 
-function pinoPrint (line) {
-  if (line[0] === '{') {
-    const { err, value } = parseJson(line)
+module.exports = function pinoPrint (config) {
+  const options = Object.assign({}, defaults, config)
 
-    // If the line couldn't be parsed as JSON, log the line without formatting
-    // it as a request/response.
-    if (err) {
-      return passthrough(line)
+  // Create the Print instance based on the CLI or prettyPrint options.
+  const print = new Print({
+    ...options,
+    ...options.ansi ? {} : { chalkLevel: 0 }
+  })
+
+  return function prettifier (line) {
+    if (typeof line === 'string') {
+      const { err, value } = parseJson(line)
+
+      // If the line couldn't be parsed as JSON, return it without formatting.
+      if (err) {
+        return print.write(line)
+      }
+
+      line = value
     }
 
     let {
@@ -63,7 +48,7 @@ function pinoPrint (line) {
 
       // Everything else:
       ...rest
-    } = value
+    } = line
 
     const messages = []
     const isRequest = responseTime !== undefined
@@ -118,11 +103,11 @@ function pinoPrint (line) {
       messages.push(chalk.dim(`in ${responseTime}ms`))
     }
 
-    if (hasUrl && config.static && req.url.includes(config.static)) {
+    if (hasUrl && options.static && req.url.includes(options.static)) {
       // Reset rest object so it doesn't get logged if the request is for a
       // static URL and the static option is set.
       rest = {}
-    } else if (isRequest && config.level === 'debug') {
+    } else if (isRequest && options.level === 'debug') {
       // Add back information if log level is debug.
       rest.hostname = hostname
       rest.pid = pid
@@ -133,10 +118,11 @@ function pinoPrint (line) {
       rest.res = { headers: res.headers }
     }
 
-    print[logType](...messages, ...Object.keys(rest).length ? [rest] : [])
-  } else {
-    passthrough(line)
+    line = print[logType](
+      ...messages,
+      ...Object.keys(rest).length ? [rest] : []
+    )
+
+    return options.ansi ? line : stripAnsi(line)
   }
 }
-
-process.stdin.pipe(split(pinoPrint))
