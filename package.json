@@ -13,7 +13,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "example": "node tests/example.js | node index.js",
+    "example": "node tests/example.js | node cli.js",
     "test": "bff"
   },
   "repository": {
