@@ -22,7 +22,7 @@ module.exports = function pinoPrint (config) {
 
       // If the line couldn't be parsed as JSON, return it without formatting.
       if (err) {
-        return line
+        return print.write(line)
       }
 
       line = value
