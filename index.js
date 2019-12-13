@@ -10,7 +10,10 @@ module.exports = function pinoPrint (config) {
   const options = Object.assign({}, defaults, config)
 
   // Create the Print instance based on the CLI or prettyPrint options.
-  const print = new Print({ ...options.ansi ? {} : { chalkLevel: 0 } })
+  const print = new Print({
+    stream: options.stream,
+    ...options.ansi ? {} : { chalkLevel: 0 }
+  })
 
   return function prettifier (line) {
     if (typeof line === 'string') {
