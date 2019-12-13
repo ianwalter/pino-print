@@ -19,6 +19,7 @@ async function run () {
   await requester.get(server.url)
   await requester.get(`${server.url}/static/a.gif`)
   await requester.post(server.url, { body: { message: 'in a bottle' } })
+  console.log('\nconsole.log should still work, btw\n')
   await server.close()
 }
 

@@ -1,5 +1,4 @@
 const { Print, chalk } = require('@ianwalter/print')
-const parseJson = require('fast-json-parse')
 const stripAnsi = require('strip-ansi')
 
 const defaults = {
@@ -15,14 +14,12 @@ module.exports = function pinoPrint (config) {
 
   return function prettifier (line) {
     if (typeof line === 'string') {
-      const { err, value } = parseJson(line)
-
-      // If the line couldn't be parsed as JSON, return it without formatting.
-      if (err) {
+      try {
+        line = JSON.parse(line)
+      } catch (err) {
+        // If the line couldn't be parsed as JSON, return it without formatting.
         return print.write(line)
       }
-
-      line = value
     }
 
     let {
