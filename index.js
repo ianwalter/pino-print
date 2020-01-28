@@ -106,13 +106,10 @@ module.exports = function pinoPrint (config) {
       rest = {}
     } else if (isRequest && options.level === 'debug') {
       // Add back information if log level is debug.
-      rest.hostname = hostname
-      rest.pid = pid
-      rest.req = {
-        id: req.id,
-        headers: req.headers
-      }
-      rest.res = { headers: res.headers }
+      const { method, url, ...restOfReq } = req
+      rest.req = restOfReq
+      const { statusCode, ...restOfRes } = res
+      rest.res = restOfRes
     }
 
     line = print[logType](
