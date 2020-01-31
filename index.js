@@ -41,6 +41,7 @@ module.exports = function pinoPrint (config) {
       pid,
 
       // Ignored:
+      err,
       v,
 
       // Everything else:
