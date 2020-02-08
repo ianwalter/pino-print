@@ -74,8 +74,12 @@ module.exports = function pinoPrint (config) {
       const ms = `${datetime.getMilliseconds()}`.padEnd(3, '0')
       const date = datetime.toLocaleDateString()
       messages.push(
-        chalk.white.bold(`${date} ${second}.${ms}${meridiem.toLowerCase()} ●`)
+        chalk.white.bold(`${date} ${second}.${ms}${meridiem.toLowerCase()} ◦`)
       )
+    }
+
+    if (req && req.id) {
+      messages.push(`${req.id} ◦`)
     }
 
     if (res && res.statusCode) {

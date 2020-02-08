@@ -38,8 +38,8 @@ const lineFour = JSON.stringify({
   v: 1
 }) + '\n'
 const withoutTs = line => {
-  const [first, second] = line.split('●')
-  return second || first
+  const [first, second, third] = line.split('◦')
+  return third || second || first
 }
 const emptyLines = line => line
 
