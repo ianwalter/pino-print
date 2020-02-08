@@ -38,7 +38,7 @@
   "homepage": "https://github.com/ianwalter/pino-print#readme",
   "dependencies": {
     "@ianwalter/cli": "^4.1.0",
-    "@ianwalter/print": "^5.0.0",
+    "@ianwalter/print": "^5.1.0",
     "split2": "^3.1.1",
     "strip-ansi": "^6.0.0"
   },
