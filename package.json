@@ -39,17 +39,17 @@
   "homepage": "https://github.com/ianwalter/pino-print#readme",
   "dependencies": {
     "@ianwalter/cli": "^4.1.0",
-    "@ianwalter/print": "^5.0.0",
+    "@ianwalter/print": "^5.1.0",
     "split2": "^3.1.1",
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.1.0",
+    "@ianwalter/bff": "^9.2.0",
     "@ianwalter/eslint-config": "^4.0.0",
     "@ianwalter/nrg": "^0.0.70",
     "@ianwalter/release": "^5.0.0",
     "@ianwalter/renovate-config": "^1.2.0",
-    "@ianwalter/requester": "^1.10.1",
+    "@ianwalter/requester": "^1.10.2",
     "execa": "^4.0.0"
   },
   "eslintConfig": {

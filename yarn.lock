@@ -211,20 +211,15 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ianwalter/base-error@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.0.0.tgz#d53b93115739e4fec4406b06173be35321d207f8"
-  integrity sha512-I7iqckGb4RCE4pZKTo4o3J17ajhp1+XJfYMTQhY4L+tyWYNdj5sqacrnyzgfrYpkzuUrdWGIgpcsF72WA2yPkg==
-
 "@ianwalter/base-error@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.1.0.tgz#a25f8a57e04877f6823251c5f1e05c7c060a0130"
   integrity sha512-a1oe3gdY7aVJotysd2hbkARZdIXd80b1xL+kcJGQ/5VzEv7bMhQ+vlamv8DLz828uz/dxMCVb4++n75RyVUs2Q==
 
-"@ianwalter/bff@^9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-9.1.0.tgz#9bcdd045a5b543bbd8699cffb1856e3c0efc2e90"
-  integrity sha512-YPM0d/y2iQuQJzPSmEpEXzwQ/VmGQEzxdKHwaXBfmTWpqlfHKZRFBoXxSEIDCEpLuAhfIQg+Ofp2oGM++4gnxg==
+"@ianwalter/bff@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-9.2.0.tgz#8813aba86f7df0cd0c2b44452edc2b2639a5dda9"
+  integrity sha512-oh5gqBdooSBy2q0JS8Icj8Eq3j0O7BusJFwKl/t168chCtyiwqLP27DU6kUeE4/FiRVB9b+3HKWblqAes9OJJg==
   dependencies:
     "@ianwalter/cli" "^4.1.0"
     "@ianwalter/clone" "^4.1.0"
@@ -291,6 +286,11 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-4.1.0.tgz#635860922699338da607b8e990ae5173e3e3e9c9"
   integrity sha512-UWlp3DtPvLgZkS3hy6ihHQATjQC1BtoJxk4PCO/v7r8m7P4g0WkdacadpUh0ze3yNqO+uFIRW2RX1boGz7feQQ==
+
+"@ianwalter/clone@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-5.0.0.tgz#d5e20f3b9eccfbbb094f6f38e1cf6d31818b51ac"
+  integrity sha512-N0BlOwYog4ASu2OP+9q2xM3fvJDtFm4YhhZG2dmn0rmueJGhqC/OSJIHgixL6wORDP0w9+sRJdI97b0IoWBdYw==
 
 "@ianwalter/cloneable@^1.0.0", "@ianwalter/cloneable@^1.0.1":
   version "1.0.1"
@@ -430,20 +430,6 @@
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^3.4.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.5.0.tgz#13a594f29330b0be28e27355b7c707a01251d93f"
-  integrity sha512-5NYDzTSPeNMzY5OljmyF2w6NDw8A8MWUfGvkiS/e/mZIKaS61AhRqMb3/gLreb/UyqonsdMqzI0lYMmZThfSyA==
-  dependencies:
-    "@ianwalter/chromafi" "^1.0.1"
-    "@ianwalter/clone" "^4.1.0"
-    "@ianwalter/log" "^3.1.0"
-    chalk "^2.4.2"
-    has-ansi "^4.0.0"
-    has-emoji "^1.1.0"
-    marked "^0.7.0"
-    marked-terminal "^3.3.0"
-
 "@ianwalter/print@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.9.0.tgz#db84d5f0fdcd144b1647aded8d33e6fa615208b9"
@@ -490,6 +476,22 @@
     marked-terminal "^4.0.0"
     strip-ansi "^6.0.0"
 
+"@ianwalter/print@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-5.1.0.tgz#52c5b727a24088ae3354f34c8147761053bc907f"
+  integrity sha512-hthgIc5l98Az6TS1m2SzAzjWtVwrAdBBJvW8uhtvq+awekelri5s4yoKNLkZAjHRJSM7gyXX+IK/ttISzkiOUA==
+  dependencies:
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/clone" "^5.0.0"
+    "@ianwalter/log" "^4.0.0"
+    "@ianwalter/merge" "^5.0.0"
+    chalk "^3.0.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^0.8.0"
+    marked-terminal "^4.0.0"
+    strip-ansi "^6.0.0"
+
 "@ianwalter/release@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-5.0.0.tgz#e1e454e20e9dcc74936f207004ba58c475daf683"
@@ -512,13 +514,14 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/requester@^1.10.1":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-1.10.1.tgz#1c460c807c60dc86634925b57a5ea637ba2c2b28"
-  integrity sha512-E+8j6JJ70DfMhG287hpK/cleThTfnVF2uJS9NikReiUkA16W1nFnhHca8ATChokZKSOy2MiFmPKo5lYpRR7oFQ==
+"@ianwalter/requester@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-1.10.2.tgz#b18551601781edc6b788ff7d4b79ac3ce73fed1e"
+  integrity sha512-zMw0LFyz0Cw8eeQ6FcUoNoqUyp/4Y9NXYnqygA1aR5v0x102IZkinZuO2+uqa9UDim3mJyTBUN5h8azyXHks7Q==
   dependencies:
-    "@ianwalter/base-error" "^6.0.0"
-    "@ianwalter/print" "^3.4.0"
+    "@ianwalter/base-error" "^6.1.0"
+    "@ianwalter/merge" "^5.0.0"
+    "@ianwalter/print" "^5.0.0"
     fast-json-parse "^1.0.3"
 
 "@ianwalter/router@^3.1.4":
