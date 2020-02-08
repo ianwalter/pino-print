@@ -23,4 +23,4 @@ const config = cli({
 })
 const prettifier = pinoPrint(config)
 
-process.stdin.pipe(split(prettifier))
+process.stdin.pipe(split(prettifier)).pipe(process.stdout)

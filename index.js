@@ -1,6 +1,7 @@
 const { Print, chalk } = require('@ianwalter/print')
 const stripAnsi = require('strip-ansi')
 
+// Defaults for prettifier mirror CLI defaults.
 const defaults = {
   level: 'info',
   ansi: true
@@ -11,7 +12,7 @@ module.exports = function pinoPrint (config) {
 
   // Create the Print instance based on the CLI or prettyPrint options.
   const print = new Print({
-    stream: options.stream,
+    stream: false,
     ...options.ansi ? {} : { chalkLevel: 0 }
   })
 
@@ -68,6 +69,7 @@ module.exports = function pinoPrint (config) {
       logColor = 'red'
     }
 
+    // Format the Unix timestamp into a readable date.
     if (time) {
       const datetime = new Date(time)
       const [second, meridiem] = datetime.toLocaleTimeString().split(' ')
@@ -78,27 +80,33 @@ module.exports = function pinoPrint (config) {
       )
     }
 
+    // Output the request ID if set.
     if (req && req.id) {
       messages.push(`${req.id} ◦`)
     }
 
+    // Output the response HTTP status code if set.
     if (res && res.statusCode) {
       messages.push(chalk[logColor](res.statusCode))
     }
 
+    // Output the HTTP request method if set.
     if (req && req.method && isRequest) {
       messages.push(chalk[logColor](req.method))
     }
 
+    // Output the request URL path if set.
     const hasUrl = isRequest && req && req.url
     if (hasUrl) {
       messages.push(chalk[logColor](req.url))
     }
 
+    // Output the log message if set.
     if (msg) {
       messages.push(chalk[logColor](msg))
     }
 
+    // Output the amount of time it took for the request to receive a response.
     if (isRequest) {
       responseTime = responseTime === 0 ? '< 1' : responseTime
       // FIXME: use timer to get a better formatted duration string.
@@ -117,12 +125,14 @@ module.exports = function pinoPrint (config) {
       rest.res = restOfRes
     }
 
+    // Replace the line with the line formatted by print.
     line = print[logType](
       ...logType === 'log' ? [null] : [],
       ...messages,
       ...Object.keys(rest).length ? [rest] : []
     )
 
+    // Return the line string to the stream.
     return options.ansi ? line : stripAnsi(line)
   }
 }
