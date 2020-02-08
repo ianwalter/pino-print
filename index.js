@@ -120,7 +120,7 @@ module.exports = function pinoPrint (config) {
       rest = {}
     } else if (isRequest && options.verbose) {
       // Add back information if log level is debug.
-      const { method, url, remoteAddress, remotePort, ...restOfReq } = req
+      const { id, method, url, remoteAddress, remotePort, ...restOfReq } = req
       rest.req = restOfReq
       const { statusCode, ...restOfRes } = res
       rest.res = restOfRes
