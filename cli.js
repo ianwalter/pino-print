@@ -10,7 +10,7 @@ const config = cli({
   usage: 'node server.js | pino-print [options]',
   options: {
     verbose: {
-      alias: 'v',
+      alias: 'V',
       description: 'Output more request/response information',
       default: false
     },

@@ -1,12 +1,10 @@
 const { createApp } = require('@ianwalter/nrg')
 const { Requester } = require('@ianwalter/requester')
-const { print } = require('@ianwalter/print')
 const pinoPrint = require('..')
 
 const requester = new Requester({ shouldThrow: false })
 
 async function run () {
-  print.info('Starting server')
   const app = await createApp({ log: { prettifier: pinoPrint } }).start()
   app.use(ctx => {
     if (ctx.req.method === 'POST') {
