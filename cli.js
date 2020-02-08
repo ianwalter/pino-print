@@ -38,4 +38,3 @@ if (config.help) {
   const prettifier = pinoPrint(config)
   process.stdin.pipe(split(prettifier)).pipe(process.stdout)
 }
-
