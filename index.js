@@ -1,9 +1,10 @@
 const { Print, chalk } = require('@ianwalter/print')
 const stripAnsi = require('strip-ansi')
 
-// Defaults for prettifier mirror CLI defaults.
+// Defaults for when the prettifier function is being used via require and not
+// through the CLI.
 const defaults = {
-  level: 'info',
+  verbose: false,
   ansi: true
 }
 
@@ -117,7 +118,7 @@ module.exports = function pinoPrint (config) {
       // Reset rest object so it doesn't get logged if the request is for a
       // static URL and the static option is set.
       rest = {}
-    } else if (isRequest && options.level === 'debug') {
+    } else if (isRequest && options.verbose) {
       // Add back information if log level is debug.
       const { method, url, ...restOfReq } = req
       rest.req = restOfReq

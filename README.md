@@ -20,10 +20,12 @@ node server.js | npx pino-print
 
 ## Options
 
-* `--level, -l <debug|info>` Sets the log level (default: 'info')
-* `--(no-)ansi, -a` Enables (default) or disables ANSI escape sequences (via
-  Chalk)
-
+* `--verbose, -v` Output more request/response information (default: false)
+* `--static, -s <path>` Specify a path that matches requests for static files so
+  less information is logged for those requests/responses when in verbose mode
+  (default: /static)
+* `--(no-)ansi, -a` Enables (default) or disables ANSI escape sequences used to
+  format output (via Chalk)
 
 ## License
 
