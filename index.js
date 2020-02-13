@@ -77,13 +77,13 @@ module.exports = function pinoPrint (config) {
       const ms = `${datetime.getMilliseconds()}`.padEnd(3, '0')
       const date = datetime.toLocaleDateString()
       messages.push(
-        chalk.white.bold(`${date} ${second}.${ms}${meridiem.toLowerCase()} ◦`)
+        chalk.white.bold(`${date} ${second}.${ms}${meridiem.toLowerCase()} •`)
       )
     }
 
     // Output the request ID if set.
     if (req && req.id) {
-      messages.push(`${req.id} ◦`)
+      messages.push(`${req.id} •`)
     }
 
     // Output the response HTTP status code if set.
