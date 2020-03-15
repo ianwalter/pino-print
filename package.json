@@ -44,7 +44,7 @@
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.6.0",
+    "@ianwalter/bff": "^9.7.0",
     "@ianwalter/eslint-config": "^4.0.0",
     "@ianwalter/nrg": "^0.0.79",
     "@ianwalter/release": "^5.0.0",
